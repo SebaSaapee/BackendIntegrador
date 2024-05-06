@@ -2,12 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserDTO } from 'src/user/dto/user.dto';
 import { UserMSG } from 'src/common/constants';
-import { ClientProxyWebMovil } from 'src/common/proxy/client-proxy';
+import { ClientProxyIntegrador } from 'src/common/proxy/client-proxy';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly clientProxy: ClientProxyWebMovil,
+    private readonly clientProxy: ClientProxyIntegrador,
     private readonly jwtService: JwtService,
     
   ) {}

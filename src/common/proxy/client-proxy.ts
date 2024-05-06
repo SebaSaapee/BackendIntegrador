@@ -4,7 +4,7 @@ import {ClientProxy,ClientProxyFactory,Transport,} from '@nestjs/microservices';
 import { RabbitMQ } from '../constants';
 
 @Injectable()
-export class ClientProxyWebIntegrador {
+export class ClientProxyIntegrador {
   constructor(private readonly config: ConfigService) {}
 
   clientProxyUsers(): ClientProxy {
