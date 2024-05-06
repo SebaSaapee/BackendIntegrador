@@ -17,5 +17,17 @@ export class ClientProxyIntegrador {
     });
   }
 
+  clientProxyService(): ClientProxy{
+    return ClientProxyFactory.create({
+       transport: Transport.RMQ,
+       options:{
+           urls: this.config.get('AMQP_URL'),
+           queue: RabbitMQ.ServicesQueue,
+              }
+
+    })
+}
+
+
 
 }
