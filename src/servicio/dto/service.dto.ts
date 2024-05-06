@@ -19,8 +19,8 @@ export class ServiceDTO{
     @IsNotEmpty()
     @IsString()
     readonly contacto: string;
-    @ApiProperty()
-    @IsNotEmpty()
-    @IsString()
-    readonly fotos: string[]; 
+    //@ApiProperty()
+    //@IsNotEmpty()
+   // @IsString()
+  //  readonly fotos: string[]; 
 }
