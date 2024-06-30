@@ -15,10 +15,16 @@ export class ServiceController {
     private _clientProxyService = this.clientProxy.clientProxyService();
 
 
-    @Post()
-    create(@Body() serviceDTO: ServiceDTO): Observable<IService>{
-        return this._clientProxyService.send(ServicesMSG.CREATE, serviceDTO);
+    @Post(':id')
+    create(@Param('id') userId: string, @Body() serviceDTO: ServiceDTO): Observable<IService> {
+        // Set user_id in the serviceDTO
+        userId = userId;
 
+        // Optionally set a default rating if not provided
+       
+
+        const payload = { serviceDTO, userId, };
+        return this._clientProxyService.send(ServicesMSG.CREATE, payload);
     }
     @Get()
     findAll(): Observable<IService[]>{
@@ -40,4 +46,6 @@ export class ServiceController {
         return this._clientProxyService.send(ServicesMSG.DELETE,id);
     }
     
+   
+  
 }

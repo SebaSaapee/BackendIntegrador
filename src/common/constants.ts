@@ -18,4 +18,5 @@ export enum    ServicesMSG{
   FIND_ONE = 'FIND_SERVICE',
   UPDATE = 'UPDATE_SERVICE',
   DELETE = 'DELETE_SERVICE',
+  
 }
