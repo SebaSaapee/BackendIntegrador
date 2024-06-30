@@ -28,6 +28,15 @@ export class ClientProxyIntegrador {
     })
 }
 
+clientProxyPostulacion(): ClientProxy {
+  return ClientProxyFactory.create({
+    transport: Transport.RMQ,
+    options: {
+      urls: this.config.get('AMQP_URL'),
+      queue: RabbitMQ.PostulacionQueue, // Asegúrate de tener definido RabbitMQ.PostulacionQueue en tus constantes
+    },
+  });
+}
 
 
 }
