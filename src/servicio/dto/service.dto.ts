@@ -25,4 +25,6 @@ export class ServiceDTO{
     readonly user_id: string;
     @ApiProperty()
     readonly rating: number;
+
+    readonly horariosDisponibles: string[];
 }
