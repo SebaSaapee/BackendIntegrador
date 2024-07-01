@@ -46,6 +46,15 @@ export class ServiceController {
         return this._clientProxyService.send(ServicesMSG.DELETE,id);
     }
     
-   
+    @Get(':serviceId/horarios-disponibles/:year/:month/:day')
+    getAvailableHours(
+        @Param('serviceId') serviceId: string,
+        @Param('year') year: number,
+        @Param('month') month: number,
+        @Param('day') day: number,
+    ): Observable<string[]> {
+        const date = new Date(year, month - 1, day); // Month in JavaScript Date object is 0-indexed
+        return this._clientProxyService.send(ServicesMSG.GET_AVAILABLE_HOURS, { serviceId, date });
+    }
   
 }
