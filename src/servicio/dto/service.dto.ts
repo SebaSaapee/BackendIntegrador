@@ -26,5 +26,4 @@ export class ServiceDTO{
     @ApiProperty()
     readonly rating: number;
 
-    readonly horariosDisponibles: string[];
 }

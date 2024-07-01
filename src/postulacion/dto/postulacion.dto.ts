@@ -13,7 +13,7 @@ export class PostulacionDTO {
     @ApiProperty()
     @IsNotEmpty()
     @IsString()
-    readonly fechaSolicitada: string;
+    readonly fechaSolicitada: Date;
     @ApiProperty()
     @IsNotEmpty()
     @IsString() // Formato 'YYYY-MM-DD'
