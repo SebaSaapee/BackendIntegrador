@@ -56,5 +56,8 @@ export class ServiceController {
         const date = new Date(year, month - 1, day); // Month in JavaScript Date object is 0-indexed
         return this._clientProxyService.send(ServicesMSG.GET_AVAILABLE_HOURS, { serviceId, date });
     }
-  
+    @Get('/top/requested')
+    findTopRequested(): Observable<IService[]> {
+        return this._clientProxyService.send(ServicesMSG.FIND_TOP_REQUESTED, '');
+    }
 }
