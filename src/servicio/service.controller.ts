@@ -4,7 +4,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { ClientProxyIntegrador } from 'src/common/proxy/client-proxy';
-import { ServiceDTO } from './dto/service.dto';
+import { ReviewDTO, ServiceDTO } from './dto/service.dto';
 import { ServicesMSG } from 'src/common/constants';
 import { IService } from 'src/common/interfaces/services.interface';
 @ApiTags('service')
@@ -37,8 +37,8 @@ export class ServiceController {
     }
 
     @Put(':id')
-    update(@Param('id')id:string, @Body() serviceDTO:ServiceDTO): Observable<IService>{
-        return this._clientProxyService.send(ServicesMSG.UPDATE,{id,serviceDTO});
+    update(@Param('id') id: string, @Body() serviceDTO: ServiceDTO): Observable<IService> {
+        return this._clientProxyService.send(ServicesMSG.UPDATE, { id, serviceDTO });
     }
 
     @Delete(':id')
@@ -81,4 +81,19 @@ export class ServiceController {
         return this._clientProxyService.send(ServicesMSG.GET_TOP_SERVICES, userId);
     }
 
+    @Post(':serviceId/reviews/:usuarioId')
+    addReview(@Param('serviceId') serviceId: string, @Param('usuarioId') usuarioId: string, @Body() reviewDTO: ReviewDTO): Promise<IService> {
+        usuarioId = usuarioId;  // Set the userId in the reviewDTO
+        const payload = { serviceId, reviewDTO,usuarioId };
+        return this._clientProxyService.send(ServicesMSG.ADD_REVIEW, payload).toPromise();
+    }
+
+
+    @Get('service/:userId')
+    findByUser(@Param('userId') userId: string): Observable<IService[]> {
+        return this._clientProxyService.send(ServicesMSG.FIND_BY_USER, userId);
+    }
 }
+
+ 
+
