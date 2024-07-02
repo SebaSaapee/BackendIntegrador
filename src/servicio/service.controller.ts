@@ -60,4 +60,25 @@ export class ServiceController {
     findTopRequested(): Observable<IService[]> {
         return this._clientProxyService.send(ServicesMSG.FIND_TOP_REQUESTED, '');
     }
+
+    @Get('/reports/total-sales/:servicioId')
+    getTotalSales(@Param('servicioId') servicioId: string): Observable<number> {
+        return this._clientProxyService.send(ServicesMSG.GET_TOTAL_SALES, servicioId);
+    }
+
+    @Get('/reports/monthly-sales/:servicioId')
+    getMonthlySales(@Param('servicioId') servicioId: string): Observable<{ month: string, total: number }[]> {
+        return this._clientProxyService.send(ServicesMSG.GET_MONTHLY_SALES, servicioId);
+    }
+
+    @Get('/reports/annual-sales/:servicioId')
+    getAnnualSales(@Param('servicioId') servicioId: string): Observable<{ year: string, total: number }[]> {
+        return this._clientProxyService.send(ServicesMSG.GET_ANNUAL_SALES, servicioId);
+    }
+
+    @Get('/reports/top-services/:userId')
+    getTopServices(@Param('userId') userId: string): Observable<IService[]> {
+        return this._clientProxyService.send(ServicesMSG.GET_TOP_SERVICES, userId);
+    }
+
 }

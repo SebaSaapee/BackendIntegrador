@@ -14,7 +14,7 @@ export class ServiceDTO{
     @ApiProperty()
     @IsNotEmpty()
     @IsString()
-    readonly precio: string;
+    readonly precio: number;
     @ApiProperty()
     @IsNotEmpty()
     @IsString()
