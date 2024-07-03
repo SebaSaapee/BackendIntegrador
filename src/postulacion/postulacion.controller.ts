@@ -46,4 +46,10 @@ export class PostulacionController {
   delete(@Param('id') id: string): Observable<any> {
     return this._clientProxyPostulacion.send(PostulacionMsg.DELETE, id);
   }
+
+  @Get('user/:userId')
+  findByUser(@Param('userId') userId: string): Observable<IPostulacion[]> {
+    return this._clientProxyPostulacion.send(PostulacionMsg.FIND_BY_USER, userId);
+  }
 }
+

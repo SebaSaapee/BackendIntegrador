@@ -41,3 +41,19 @@ export class ReviewDTO {
     @ApiProperty()
     readonly fecha: Date;
 }
+
+export class ChatDTO{
+    readonly _id?:string;
+    @ApiProperty()
+    readonly userId:string;
+    @ApiProperty()
+    readonly nombreUsuario: string;
+    @ApiProperty()
+    readonly mensajeU :string;
+    @ApiProperty()
+    readonly prestadorServicio?: string;
+    @ApiProperty()
+    readonly respuesta?: string;
+    @ApiProperty()
+    readonly fecha: Date;
+}
