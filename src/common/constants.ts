@@ -4,13 +4,16 @@ export enum RabbitMQ {
   PostulacionQueue = 'postulaciones',
 }
 
-export enum UserMSG {
+
+export enum UserMsg {
   CREATE = 'CREATE_USER',
   FIND_ALL = 'FIND_USERS',
   FIND_ONE = 'FIND_USER',
   UPDATE = 'UPDATE_USER',
   DELETE = 'DELETE_USER',
   VALID_USER = 'VALID_USER',
+  GENERATE_RECOVERY_CODE = 'GENERATE_RECOVERY_CODE',
+  RESET_PASSWORD = 'RESET_PASSWORD',
 }
 
 export enum    ServicesMSG{

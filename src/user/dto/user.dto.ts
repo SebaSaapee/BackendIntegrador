@@ -9,7 +9,7 @@ export class UserDTO {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  readonly username: string;
+  readonly username?: string;
   @ApiProperty()
   @IsNotEmpty()
   @IsEmail()
@@ -17,5 +17,7 @@ export class UserDTO {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  readonly password: string;
+  readonly password?: string;
+
+  readonly recoveryCode?: string;
 }

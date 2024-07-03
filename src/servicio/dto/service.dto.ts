@@ -43,7 +43,7 @@ export class ReviewDTO {
 }
 
 export class ChatDTO{
-    readonly _id?:string;
+    
     @ApiProperty()
     readonly userId:string;
     @ApiProperty()

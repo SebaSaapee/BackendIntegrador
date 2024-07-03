@@ -19,7 +19,7 @@ export interface IService extends Document{
   }
 
   interface IChat {
-    _id?:string;
+  
     userId: string;
    nombreUsuario: string; // Nombre Usuario que deja la pregunta o consulta
    mensajeU: string; // consulta/ mensaje
