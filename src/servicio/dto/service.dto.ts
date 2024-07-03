@@ -47,9 +47,9 @@ export class ChatDTO{
     @ApiProperty()
     readonly userId:string;
     @ApiProperty()
-    readonly nombreUsuario: string;
+    readonly nombreUsuario?: string;
     @ApiProperty()
-    readonly mensajeU :string;
+    readonly mensajeU ?:string;
     @ApiProperty()
     readonly prestadorServicio?: string;
     @ApiProperty()

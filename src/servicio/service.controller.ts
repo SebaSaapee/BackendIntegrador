@@ -114,24 +114,14 @@ export class ServiceController {
         return this._clientProxyService.send(ServicesMSG.FIND_BY_USER, userId);
     }
 
-    @Put(':serviceId/chats/:chatId/respuesta')
-    async respondToChat(
-        @Param('serviceId') serviceId: string,
-        @Param('chatId') chatId: string,
-        @Body() chatDTO: ChatDTO
-    ) {
-        try {
-            serviceId = serviceId;
-            chatId = chatId
-            const payload ={serviceId,chatId,chatDTO} 
-            console.log(payload)
-            const updatedService = this._clientProxyService.send(ServicesMSG.RESPONDER_CHAT,payload);
-            
-            return { message: 'Chat message updated successfully', chat: updatedService };
-        } catch (error) {
-            this.logger.error(`Error updating chat message: ${error.message}`);
-            throw error; // Propagate the error to handle it properly
-        }
+    @Put(':serviceId/chats/:chatId')
+    async updateChat(
+      @Param('serviceId') serviceId: string,
+      @Param('chatId') chatId: string,
+      @Body() chatDTO: ChatDTO
+    ): Promise<IService> {
+      const payload = { serviceId, chatId, chatDTO };
+      return this._clientProxyService.send(ServicesMSG.UPDATE_CHAT, payload).toPromise();
     }
 }
 
